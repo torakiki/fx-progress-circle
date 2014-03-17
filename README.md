@@ -1,4 +1,4 @@
-A couple of simple controls for JavaFX to display progress as:
+A couple of JavaFX progress indicators to display progress as:
  * an arc that closes as a ring when progress is 100%
  * a circle that fills itself
 
