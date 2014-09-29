@@ -106,6 +106,7 @@ public class RingProgressIndicatorSkin implements Skin<RingProgressIndicator> {
         fillerArc.setManaged(false);
         fillerArc.getStyleClass().add("ringindicator-filler");
         fillerArc.setStartAngle(90);
+        fillerArc.setLength(indicator.getProgress() * -3.6);
     }
 
     private void initContainer(final RingProgressIndicator indicator) {
