@@ -56,7 +56,6 @@ public class FillProgressIndicatorSkin implements Skin<FillProgressIndicator> {
         AnchorPane.setTopAnchor(cover, 0.0);
         AnchorPane.setLeftAnchor(cover, 0.0);
         AnchorPane.setRightAnchor(cover, 0.0);
-        cover.setHeight(fillerCircle.getRadius() * 2);
         coverPane.getChildren().addAll(cover);
 
         this.indicator.indeterminateProperty().addListener((o, oldVal, newVal) -> {
@@ -70,6 +69,9 @@ public class FillProgressIndicatorSkin implements Skin<FillProgressIndicator> {
         this.indicator.innerCircleRadiusProperty().addListener((e) -> {
             updateRadii();
         });
+        coverPane.heightProperty().addListener((o, oldVal, newVal) -> {
+        	 this.cover.setHeight(newVal.intValue() * ((100 - indicator.getProgress()) / 100d));
+        });
         initLabel(indicator.getProgress());
         indicator.visibleProperty().addListener((o, oldVal, newVal) -> {
             if (newVal && this.indicator.isIndeterminate()) {
@@ -80,7 +82,6 @@ public class FillProgressIndicatorSkin implements Skin<FillProgressIndicator> {
         });
 
         this.container.getChildren().addAll(fillerCircle, coverPane, borderCircle, percentLabel);
-
         initTransition();
         initIndeterminate(indicator.isIndeterminate());
     }
