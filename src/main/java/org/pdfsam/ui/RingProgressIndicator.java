@@ -102,15 +102,8 @@ public class RingProgressIndicator extends ProgressCircleIndicator {
         }
     }
 
-    /**
-     * @return The CssMetaData associated with this class, which may include the CssMetaData of its super classes.
-     */
-    public static List<CssMetaData<? extends Styleable, ?>> getClassCssMetaData() {
-        return StyleableProperties.STYLEABLES;
-    }
-
     @Override
     public List<CssMetaData<? extends Styleable, ?>> getControlCssMetaData() {
-        return getClassCssMetaData();
+    	 return StyleableProperties.STYLEABLES;
     }
 }
